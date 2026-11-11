@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>แก้ม | Weerachaya Saiya</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mali:wght@500;700&family=Noto+Sans+Thai+Looped:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>สวัสดีค่ะ</h1>
+
+    <main class="page">
+
+        <!-- ===== ฝั่งซ้าย : รูปโปรไฟล์ ===== -->
+        <section class="photo-side">
+            <label class="photo-frame no-photo" for="photoInput">
+                <!-- เปลี่ยนชื่อไฟล์รูปตรง src ได้เลย เช่น images/gam.jpg -->
+                <img id="photo" src="profile.jpg" alt="รูปโปรไฟล์ของแก้ม"
+                     onload="this.parentElement.classList.remove('no-photo')"
+                     onerror="this.parentElement.classList.add('no-photo')">
+                <span class="photo-hint">แตะเพื่อเลือกรูปของคุณ</span>
+                <input type="file" id="photoInput" accept="image/*">
+            </label>
+
+            <span class="sticker sticker-heart" aria-hidden="true">♡</span>
+            <span class="sticker sticker-star" aria-hidden="true">✦</span>
+            <span class="sticker sticker-dot" aria-hidden="true"></span>
+        </section>
+
+        <!-- ===== ฝั่งขวา : ข้อมูล ===== -->
+        <section class="info-side">
+
+            <p class="nickname">ชื่อเล่น <strong>แก้ม</strong></p>
+
+            <h1 class="name-th"><span>นางสาววีรชญา ไสยา</span></h1>
+            <p class="name-en">Weerachaya Saiya</p>
+
+            <ul class="facts">
+                <li class="fact fact-pink">
+                    <span class="fact-icon" aria-hidden="true">🎀</span>
+                    <div>
+                        <span class="fact-label">ระดับชั้น</span>
+                        <span class="fact-value">ปวช.3</span>
+                    </div>
+                </li>
+                <li class="fact fact-purple">
+                    <span class="fact-icon" aria-hidden="true">💻</span>
+                    <div>
+                        <span class="fact-label">แผนกวิชา</span>
+                        <span class="fact-value">แผนกวิชาเทคโนโลยีสารสนเทศ</span>
+                    </div>
+                </li>
+                <li class="fact fact-blue">
+                    <span class="fact-icon" aria-hidden="true">🏫</span>
+                    <div>
+                        <span class="fact-label">สถานศึกษา</span>
+                        <span class="fact-value">วิทยาลัยอาชีวศึกษานครศรีธรรมราช</span>
+                    </div>
+                </li>
+            </ul>
+
+            <article class="about">
+                <h2>เกี่ยวกับฉัน</h2>
+                <!-- แก้ข้อความด้านล่างให้เป็นเรื่องของตัวเองได้เลย -->
+                <p>
+                    สวัสดีค่ะ ชื่อแก้มนะคะ ตอนนี้เรียนอยู่ชั้น ปวช.3 แผนกเทคโนโลยีสารสนเทศ
+                    ชอบเรียนรู้เรื่องคอมพิวเตอร์ การทำเว็บไซต์ และการออกแบบงานให้สวยงาม
+                    กำลังฝึกเขียนโค้ดไปทีละนิด ยินดีที่ได้รู้จักทุกคนค่ะ
+                </p>
+            </article>
+
+        </section>
+    </main>
+
+    <script>
+        // เลือกรูปจากเครื่องมาดูตัวอย่างบนหน้าเว็บได้ทันที
+        const input = document.getElementById('photoInput');
+        const photo = document.getElementById('photo');
+
+        input.addEventListener('change', () => {
+            const file = input.files[0];
+            if (file) {
+                photo.src = URL.createObjectURL(file);
+            }
+        });
+    </script>
+</body>
+</html>
